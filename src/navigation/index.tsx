@@ -3,34 +3,31 @@ import { ScreenNames } from './routes';
 import { DriversListScreen } from '@src/screens/DriversListScreen';
 import { DriversInfoScreen } from '@src/screens/DriverInfoScreen';
 import { DriversRaceListScreen } from '@src/screens/DriverRaceListScreen';
-import { createStaticNavigation } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
+import { RootStackParamList } from './params';
 
-const RootStack = createNativeStackNavigator({
-  initialRouteName: ScreenNames.DRIVERS_LIST,
-  screens: {
-    [ScreenNames.DRIVERS_LIST]: {
-      screen: DriversListScreen,
-      options: {
-        title: 'Drivers',
-      },
-    },
-    [ScreenNames.DRIVER_INFO]: {
-      screen: DriversInfoScreen,
-      options: {
-        title: 'Driver Info',
-      },
-    },
-    [ScreenNames.DRIVER_RACE_LIST]: {
-      screen: DriversRaceListScreen,
-      options: {
-        title: 'Driver Race',
-      },
-    },
-  },
-});
-
-const Navigation = createStaticNavigation(RootStack);
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const AppNavigation = () => {
-  return <Navigation />;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName={ScreenNames.DRIVERS_LIST}>
+        <Stack.Screen
+          name={ScreenNames.DRIVERS_LIST}
+          component={DriversListScreen}
+          options={{ title: 'Drivers' }}
+        />
+        <Stack.Screen
+          name={ScreenNames.DRIVER_INFO}
+          component={DriversInfoScreen}
+          options={{ title: 'Driver Info' }}
+        />
+        <Stack.Screen
+          name={ScreenNames.DRIVER_RACE_LIST}
+          component={DriversRaceListScreen}
+          options={{ title: 'Driver Race' }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 };
