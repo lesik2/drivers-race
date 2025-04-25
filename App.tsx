@@ -1,8 +1,14 @@
 import React from 'react';
-import { Navigation } from './src/navigation';
+import { AppNavigation } from './src/navigation';
+import { store } from './src/store';
+import { Provider } from 'react-redux';
 
 function App(): React.JSX.Element {
-  return <Navigation />;
+  return (
+    <Provider store={store}>
+      <AppNavigation />
+    </Provider>
+  );
 }
 
 export default App;

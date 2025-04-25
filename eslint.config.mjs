@@ -33,6 +33,8 @@ export default [
     },
     rules: {
       "brace-style": ["error", "1tbs"],
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "error"
     },
   },
 ];
