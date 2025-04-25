@@ -1,15 +1,9 @@
-import {
-    View,
-    Text
-  } from 'react-native';
-import { API_URL } from '@env';
+import { View, Text } from 'react-native';
 
-export const Navigation = ()=>{
-    return (
-        <View>
-            <Text>
-                Hello World !!!!!
-            </Text>
-        </View>
-    )
-}
+export const Navigation = () => {
+  return (
+    <View>
+      <Text>Hello World !!!!!</Text>
+    </View>
+  );
+};

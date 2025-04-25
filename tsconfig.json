@@ -1,6 +1,8 @@
 {
   "extends": "@react-native/typescript-config/tsconfig.json",
+  "exclude": ["__tests__/**/*-test.ts"],
   "compilerOptions": {
+    "jsx": "react-native",
     "baseUrl": "./",
     "paths": {
       "*": ["./*"],
@@ -11,5 +13,6 @@
       "@store/*": ["src/store/*"],
       "@shared/*": ["src/shared/*"]
     }
-  }
+  },
+    
 }
