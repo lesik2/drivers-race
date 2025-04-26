@@ -27,23 +27,21 @@ export const DriversTable = ({
       <Text style={styles.headerCell}>Name</Text>
       <Text style={styles.headerCell}>Nationality</Text>
       <Text style={styles.headerCell}>DOB</Text>
-      <Text style={[styles.headerCell, styles.iconCell]}>Info</Text>
       <Text style={[styles.headerCell, styles.iconCell]}>Race</Text>
     </View>
   );
 
   const renderItem = ({ item }: { item: Driver }) => (
     <View style={styles.row}>
-      <Text style={styles.cell}>
-        {item.givenName} {item.familyName}
-      </Text>
-      <Text style={styles.cell}>{item.nationality}</Text>
-      <Text style={styles.cell}>{item.dateOfBirth}</Text>
       <TouchableOpacity
         onPress={() => onSelect(item.driverId)}
         style={styles.iconCell}>
-        <Text style={styles.icon}>👤</Text>
+        <Text style={styles.cell}>
+          {item.givenName} {item.familyName}
+        </Text>
       </TouchableOpacity>
+      <Text style={styles.cell}>{item.nationality}</Text>
+      <Text style={styles.cell}>{item.dateOfBirth}</Text>
       <TouchableOpacity
         onPress={() => onViewRace(item.driverId)}
         style={styles.iconCell}>
